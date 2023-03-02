@@ -1,0 +1,38 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<div class="mainContainer">
+<div class="formWindow">
+    <h1>Add Job</h1>
+
+    <div class="alert alert-primary" role="alert">
+        {{responseMessage}}
+    </div>
+
+    <form action="/job" method="post" enctype="multipart/form-data" class="formContainer">
+        
+        <div class="section">
+            <label class="textWin" for="title">Title:</label>
+            <input class="valWindow"type="text" name="title" id="title">
+        </div>
+        <div class="section">
+            <label class="textWin" for="description">Description:</label>
+            <textarea class="valWindow" type="text" name="description" id="description" rows="5" cols="22"></textarea>
+        </div>
+        <div class="section">
+            <label class="textWin" for="months">Months:</label>
+            <input class="valWindow" type="text" name="months" id="months">
+        </div>
+        <div class="section">
+            <label class="textWin" for="logo">File:</label>
+            <input  type="file" name="logo">
+        </div>
+        <div class="btnContainer">
+            <button class="btn" type="submit">Send</button>
+        </div>
+    </form>
+</div>
+</div>
+
+{% endblock %}

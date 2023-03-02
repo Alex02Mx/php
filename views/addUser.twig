@@ -1,0 +1,31 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<div class="mainContainer">
+<div class="formWindow">
+    <h1>Add User</h1>
+
+    <div class="alert alert-primary" role="alert">
+        {{responseMessage}}
+    </div>
+
+    <form action="/user" method="post" class="formContainer">
+        
+        <div class="section">
+            <label class="textWin" for="email">Email:</label>
+            <input class="valWindow"type="text" name="email" id="email">
+        </div>
+        <div class="section">
+            <label class="textWin" for="password">Password:</label>
+            <input class="valWindow" type="password" name="password" id="password">
+        </div>
+        
+        <div class="btnContainer">
+            <button class="btn" type="submit">Save</button>
+        </div>
+    </form>
+</div>
+</div>
+
+{% endblock %}
