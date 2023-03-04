@@ -9,6 +9,7 @@
         "laminas/laminas-diactoros": "^2.24",
         "aura/router": "^3.2",
         "twig/twig": "^3.5",
-        "respect/validation": "^2.2"
+        "respect/validation": "^2.2",
+        "vlucas/phpdotenv": "^5.5"
     }
 }

@@ -25,12 +25,13 @@ class AuthController extends BaseController{
         if($user){
             if(\password_verify($postData['password'], $user->password)){
                 $_SESSION['userId'] = $user->id;
-                return new RedirectResponse('/admin');
+                // return new RedirectResponse('/admin');
+                return new RedirectResponse('/');
             }else{
-                $responseMessage = 'Incorrect Password';
+                $responseMessage = 'Bad Credentials';
             }
         }else{
-            $responseMessage = 'User not Found';
+            $responseMessage = 'Bad Credentials';
         }
         $titleID = 'Login';
         return $this->renderHTML('login.twig', [

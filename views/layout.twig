@@ -19,14 +19,15 @@
   
   <div class="menu">
     <ul class="list">
-      
-      <li><a href="./">Index</a></li>
-      <li><a href="./job">Add Job</a></li>
-      <li><a href="./project">Add Project</a></li>
-      <li><a href="./user">Add User</a></li>
-      <li><a href="./admin">Admin</a></li>
-      
-      <li><a href="./login">Login</a></li>
+      {# {% if id == true %} #}
+        <li><a href="./">Index</a></li>
+        <li><a href="./job">Add Job</a></li>
+        <li><a href="./project">Add Project</a></li>
+        <li><a href="./user">Add User</a></li>
+        <li><a href="/logout">Logout</a></li>
+      {# {% else %} #}
+        <li><a href="./login">Login</a></li>
+      {# {% endif %} #}
     </ul>
   </div>
  

@@ -5,6 +5,10 @@ error_reporting(E_ALL);
 
 require_once "../vendor/autoload.php";
 session_start();
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Aura\Router\RouterContainer;
 
@@ -12,10 +16,10 @@ $capsule = new Capsule;
 
 $capsule->addConnection([
     'driver' => 'mysql',
-    'host' => 'localhost',
-    'database' => 'cursophp',
-    'username' => 'root',
-    'password' => '',
+    'host' => $_ENV['DB_HOST'],
+    'database' => $_ENV['DB_NAME'],
+    'username' => $_ENV['DB_USER'],
+    'password' => $_ENV['DB_PASS'],
     'charset' => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix' => '',
@@ -78,19 +82,19 @@ $map->get('loginForm', '/login', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'getLogin',
 ]);
-$map->get('logoutForm', '/logout', [
-    'controller' => 'App\Controllers\AuthController',
-    'action' => 'getLogout',
-]);
 $map->post('auth', '/auth', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'postLogin',
     //'auth' => true,
 ]);
+$map->get('logoutForm', '/logout', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'getLogout',
+]);
 $map->get('admin', '/admin', [
     'controller' => 'App\Controllers\AdminController',
     'action' => 'getindex',
-    //'auth' => true,
+    'auth' => true,
 ]);
 
 
